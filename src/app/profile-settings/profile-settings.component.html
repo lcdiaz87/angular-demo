@@ -1,5 +1,5 @@
 <div *ngIf="loadedForm">
-    <h1>{{ title }}</h1>
+    <h1>{{ 'title' | translate }}</h1>
     <form [formGroup]="form" (ngSubmit)="saveProfile(form)">
         <div class="form-group">
             <label for="firstName">First Name</label>

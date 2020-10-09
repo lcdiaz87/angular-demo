@@ -75,9 +75,7 @@ export class ProfileSettingsComponent implements OnInit {
       if(err.error === "Invalid name") this.errorName = true;
       else this.errorEmail = true;
       
-      console.log(err);
       this.form.reset(this.previousUser);
-      //this.user = Object.assign({}, this.previousUser);
       this.enableForm(true);
     });
   }
