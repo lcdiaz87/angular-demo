@@ -1,0 +1,30 @@
+<div *ngIf="loadedForm">
+    <h1>{{ title }}</h1>
+    <form [formGroup]="form" (ngSubmit)="saveProfile(form)">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input [(ngModel)]="user.firstName" type="text" class="form-control" formControlName="firstName">
+            
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input [(ngModel)]="user.lastName" type="text" class="form-control" formControlName="lastName">
+            
+        </div>
+        <div class="form-group">
+            <label for="username">Email</label>
+            <input [(ngModel)]="user.username" class="form-control" formControlName="username" > @blueface.com
+        </div>    
+    <button [disabled]="savingForm" class="btn btn-primary" type="submit">Save</button>
+    </form>
+
+
+
+    <p *ngIf="savingForm" class="alert alert-info"> Saving profile... </p>
+    <p *ngIf="errorName && !form.dirty"> Error! {{error}} </p>
+    <p *ngIf="errorEmail && !form.dirty"> Error on email generation! {{error}}</p>
+
+</div>
+<div *ngIf="!loadedForm">
+Loading profile...
+</div>
